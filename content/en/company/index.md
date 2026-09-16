@@ -33,7 +33,7 @@ sections:
         link_label: "View Railgrid on GitHub"
       - title: "Join the community"
         summary: "Ask questions and share your experience using or developing Railgrid."
-        url: "https://discord.gg/XEeZpBfM"
+        url: "https://discord.gg/f4j3KAwYn"
         link_label: "Join Discord"
       - title: "Talk to the team"
         summary: "Ask about Railgrid Cloud or discuss your architecture and deployment with us."

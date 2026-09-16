@@ -22,11 +22,15 @@
     <div class="railgrid-v2-oss-art" aria-hidden="true">
       <svg viewBox="0 0 680 320" role="presentation">
         <defs>
+          {{/* A block of the grid: two tracks crossing, with a junction where they meet. */}}
           <pattern id="railgrid-oss-dots" width="15" height="15" patternUnits="userSpaceOnUse">
-            <circle cx="4" cy="4" r="3" class="railgrid-v2-oss-dot" />
+            <path d="M4 0V15M0 4H15" class="railgrid-v2-oss-rail" />
+            <path d="M4 1.6 6.4 4 4 6.4 1.6 4Z" class="railgrid-v2-oss-dot" />
           </pattern>
+          {{/* The same block, switched on. */}}
           <pattern id="railgrid-oss-accent-dots" width="15" height="15" patternUnits="userSpaceOnUse">
-            <circle cx="4" cy="4" r="3.8" class="railgrid-v2-oss-accent-dot" />
+            <path d="M4 0V15M0 4H15" class="railgrid-v2-oss-accent-rail" />
+            <path d="M4 .6 7.4 4 4 7.4 .6 4Z" class="railgrid-v2-oss-accent-dot" />
           </pattern>
           <mask id="railgrid-oss-wordmark">
             <rect width="100%" height="100%" fill="black" />
