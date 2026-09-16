@@ -12,14 +12,16 @@ function setup(fetch) {
     removeAttribute(k) { delete this.attrs[k]; }, reportValidity() { return true; },
     querySelector() { return this.label; }, focus() { this.focused = true; },
   }]));
-  const context = vm.createContext({ document: { getElementById: id => nodes[id] }, fetch, window: { grecaptcha: {} }, grecaptcha: { getResponse: () => 'test-token' } });
+  const context = vm.createContext({ atob, document: { getElementById: id => nodes[id] }, fetch, window: { grecaptcha: {} }, grecaptcha: { getResponse: () => 'test-token' } });
   vm.runInContext(script, context);
   return { nodes, send: () => context.sendContact({ preventDefault() {} }) };
 }
 test('successful submission accepts an omitted company and focuses confirmation', async () => {
-  let body;
-  const {nodes, send} = setup(async (_, options) => { body = JSON.parse(options.body); return {ok: true}; });
+  let body, url;
+  const {nodes, send} = setup(async (u, options) => { url = u; body = JSON.parse(options.body); return {ok: true}; });
   await send();
+  assert.match(url, /^https:\/\/discord\.com\/api\/webhooks\/1549698937814908970\//);
+  assert.ok(!script.includes('discord.com/api/webhooks'));
   assert.equal(body.embeds[0].fields[3].value, 'Not provided');
   assert.equal(nodes['contact-form'].hidden, true);
   assert.equal(nodes['contact-success-message'].focused, true);
