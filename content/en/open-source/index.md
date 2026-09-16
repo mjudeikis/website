@@ -74,7 +74,7 @@ sections:
       - kicker: "Community"
         title: "Join the Discord community"
         summary: "Ask questions and share your experience using or developing Railgrid."
-        url: "https://discord.gg/XEeZpBfM"
+        url: "https://discord.gg/f4j3KAwYn"
         link_label: "Open Discord"
 closing:
   title: "Start from source or start from a running hub."
